@@ -1,0 +1,63 @@
+/*to upload font type "Montserrat" from google fonts */ 
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+	
+
+	* {
+		font-family:  'Montserrat', sans-serif;
+		color: black;
+	}
+	body {
+		margin: 2% 0;
+	}
+	img {
+		margin:2% 0;
+	}
+	hr { 
+		background-color: gray; 
+		height: 2px; 
+	}
+	.header__logo{
+	width: 180px;
+	height: 180px;}
+
+	.picture{
+	width:30px;
+
+
+	}
+
+	.img1{
+	width: 100%;
+	height: auto;
+	display:block;
+	}
+	.img2{
+	width: 100%;
+	height: auto;
+	display:block;
+	}
+	.img3{
+	width: 100%;
+	height: auto;
+	display:block;	
+	}
+	table{
+		font-family: arial,sans-serif;
+		border-collapse: collapse;
+		width :100%;
+	}
+	td,th{
+		border:1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	h1{
+		font-size: 60px;
+		padding-top: 55px;
+		color: black;
+	}
+
+	header{
+		background: #D8D7D7;
+	}
+

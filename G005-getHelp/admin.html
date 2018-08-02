@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Admin</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- used the css style of the 3333Bootstrap from here "https://www.bootstrapcdn.com/"-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAsrj50GsXRY0UdK5hnqBhmb7RfnXlu0ko",
+    authDomain: "hajjhakathon-a59a8.firebaseapp.com",
+    databaseURL: "https://hajjhakathon-a59a8.firebaseio.com",
+    projectId: "hajjhakathon-a59a8",
+    storageBucket: "",
+    messagingSenderId: "986661838828"
+  };
+  firebase.initializeApp(config);
+
+   var starCountRef = firebase.database().ref('medic/');
+            starCountRef.on("value", function(snapshot) {
+            $("#data").html("");
+            snapshot.forEach(function(data) {
+                var orderNo = data.val().orderNo;
+                var medicID = data.val().medicId;
+                var medicName = data.val().medicName;
+                var medicPhoneNumber = data.val().medicPhone;
+                var patientStatus = data.val().patientState;  
+                var description = data.val().description;     
+                var action = data.val().actionSatate;     
+   
+                var tr = "<tr><td>"+orderNo+"</td><td>"+medicID+"</td><td>"+medicName+"</td><td>"+medicPhoneNumber+"</td><td>"+patientStatus+"</td><td>"+description+"</td><td>"+actionSatate;
+                $("#data").append(tr);
+            });
+            });
+
+
+</script>
+
+<div class="container">
+	<header class="row">
+	<div class="col-md-3 text-left">
+	<img class="header__logo" src="pictures/logo-get-help.png" alt="logo" /> </div>
+	<div class="col-md-8 text-left">
+	<h1>Mentoring Requests </h1></div>
+	<div class="col-md-8 text-right text-uppercase">
+	<h2><strong> </strong></h2>
+	<h3> </h3>
+	<h3> </h3>
+	</div>
+	</header>
+	
+	<div class="row">
+	<div class="col-md-12">
+	<hr> 
+	</div>
+	<div>
+		<h2>Order Table </h2>
+	</div>
+	</div>
+	<br/>
+	<div class="row">
+	<div class="col-md-12">
+	<!-- get this photo from google -->
+	<table>
+		<tr>
+			<th>Order No.</th>
+			<th>Medic's ID </th>
+			<th>Medic's Name</th>
+			<th>Medic's phone Number</th>
+			<th>Patient Status</th>
+			<th>Descreption</th>
+			<th>action</th>
+
+			
+
+		</tr>
+		<tr id="data">
+			<th class="1"></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</table>
+	<div class="row">
+	<div class="col-md-12">
+	 
+	</div>
+	<div>
+		<br/>
+		<h2>Ambulances Table </h2>
+	</div>
+	</div>
+	<br/>
+	<div class="row">
+	<div class="col-md-12">
+	<!-- get this photo from google -->
+	<table>
+		<tr>
+			<th>Order No.</th>
+			<th>Campaign ID</th>
+			<th>Campaigns Name</th>
+			<th>Campaigns phone Number</th>
+			<th>status</th>
+			
+
+		</tr>
+		<tr>
+			<th class="1"></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</table>
+	<p></p>
+	</div>
+	</div>
+  
+	<div class="row">
+	
+	
+
+</body>
+</html>

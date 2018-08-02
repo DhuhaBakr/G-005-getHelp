@@ -1,0 +1,56 @@
+<html>
+<head>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+		* {
+		font-family:  'Montserrat', sans-serif;
+		color: black;
+		}
+
+		body {
+		margin: 15% 30%;
+		}
+		.form{
+			background: gray ;
+			padding: 30
+		}
+
+	</style>	
+</head>
+
+<body>
+
+<div class="form">
+<form action="admin.html">
+  Email:<br>
+  <input type="text" name="email" value=""><br>
+  passwword:<br>%
+  <input type="password" name="password" value=""><br><br>
+  <input type="submit" value="Sign in">
+</form>
+</div>
+
+</body>
+
+<script>
+
+	  var config = {
+    apiKey: "AIzaSyAsrj50GsXRY0UdK5hnqBhmb7RfnXlu0ko",
+    authDomain: "hajjhakathon-a59a8.firebaseapp.com",
+    databaseURL: "https://hajjhakathon-a59a8.firebaseio.com",
+    projectId: "hajjhakathon-a59a8",
+    storageBucket: "",
+    messagingSenderId: "986661838828"
+  };
+
+  firebase.initializeApp(config);
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+}); 
+</script>
+</html>
+
