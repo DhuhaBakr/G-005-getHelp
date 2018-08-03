@@ -1,63 +1,68 @@
 /*to upload font type "Montserrat" from google fonts */ 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-	
-
-	* {
-		font-family:  'Montserrat', sans-serif;
-		color: black;
-	}
-	body {
-		margin: 2% 0;
-	}
-	img {
-		margin:2% 0;
-	}
-	hr { 
-		background-color: gray; 
-		height: 2px; 
-	}
-	.header__logo{
-	width: 180px;
-	height: 180px;}
-
-	.picture{
-	width:30px;
 
 
-	}
+* {
+font-family:  'Montserrat', sans-serif;
+color: black;
+}
+body {
+margin: 2% 0;
+background-image: url("pictures/action-air-blur-739410.jpg");
 
-	.img1{
-	width: 100%;
-	height: auto;
-	display:block;
-	}
-	.img2{
-	width: 100%;
-	height: auto;
-	display:block;
-	}
-	.img3{
-	width: 100%;
-	height: auto;
-	display:block;	
-	}
-	table{
-		font-family: arial,sans-serif;
-		border-collapse: collapse;
-		width :100%;
-	}
-	td,th{
-		border:1px solid #dddddd;
-		text-align: left;
-		padding: 8px;
-	}
-	h1{
-		font-size: 60px;
-		padding-top: 55px;
-		color: black;
-	}
+}
+img {
+margin:2% 0;
+}
+hr { 
+background-color: gray;
+height: 2px; 
+}
+.header__logo{
+width: 180px;
+height: 180px;}
 
-	header{
-		background: #D8D7D7;
-	}
+.picture{
+width:30px;
+
+
+}
+
+table{
+font-family: arial,sans-serif;
+border-collapse: collapse;
+width :100%;
+
+
+}
+
+td,th{
+border:1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+h1{
+font-size: 60px;
+padding-top: 55px;
+color: black;
+
+}
+
+.bg-light{
+
+    padding: 0;
+    margin-bottom: 5%;
+}
+
+.name {
+    display: inline;
+}
+
+header{
+	background: #E7F2F9 !important;
+	    opacity: 0.5;
+
+}
+
 
