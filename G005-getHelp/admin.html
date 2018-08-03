@@ -1,218 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- used the css style of the 3333Bootstrap from here "https://www.bootstrapcdn.com/"-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link href="styles.css" rel="stylesheet">
+    <title>Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    
+    <link href="styles.css" rel="stylesheet">
 
 </head>
 <body>
 
-
-<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAsrj50GsXRY0UdK5hnqBhmb7RfnXlu0ko",
-    authDomain: "hajjhakathon-a59a8.firebaseapp.com",
-    databaseURL: "https://hajjhakathon-a59a8.firebaseio.com",
-    projectId: "hajjhakathon-a59a8",
-    storageBucket: "",
-    messagingSenderId: "986661838828"
-  };
-  firebase.initializeApp(config);
-
-   var starCountRef = firebase.database().ref('medic/');
-            starCountRef.on("value", function(snapshot) {
-            $("#data").html("");
-            snapshot.forEach(function(data) {
-                var orderNo = data.val().orderNo;
-                var medicID = data.val().medicId;
-                var medicName = data.val().medicName;
-                var medicPhoneNumber = data.val().medicPhone;
-                var patientStatus = data.val().patientState;  
-                var description = data.val().description;     
-                var action = data.val().actionSatate;     
-   
-                var tr = "<tr><td>"+orderNo+"</td><td>"+medicID+"</td><td>"+medicName+"</td><td>"+medicPhoneNumber+"</td><td>"+patientStatus+"</td><td>"+description+"</td><td>"+actionSatate;
-                $("#data").append(tr);
-            });
-            });
-
-
-</script>
-
 <div class="container">
-	<header class="row">
-	<div class="col-md-3 text-left">
-	<img class="header__logo" src="pictures/logo-get-help.png" alt="logo" /> </div>
-	<div class="col-md-8 text-left">
-	<h1>Mentoring Requests </h1></div>
-	<div class="col-md-8 text-right text-uppercase">
-	<h2><strong> </strong></h2>
-	<h3> </h3>
-	<h3> </h3>
-	</div>
-	</header>
-	
-	<div class="row">
-	<div class="col-md-12">
-	<hr> 
-	</div>
-	<div>
-		<h2>Order Table </h2>
-	</div>
-	</div>
-	<br/>
-	<div class="row">
-	<div class="col-md-12">
-	<!-- get this photo from google -->
-	<table>
-		<tr>
-			<th>Order No.</th>
-			<th>Medic's ID </th>
-			<th>Medic's Name</th>
-			<th>Medic's phone Number</th>
-			<th>Patient Status</th>
-			<th>Descreption</th>
-			<th>action</th>
+    
+    <!-- Static navbar -->
+    <header class="m1">
+    
+    <nav class="navbar navbar-light bg-light ">
+    <div class="n1">
+    <a class="logo pull-left" ><img src="pictures/logo-get-help.png" alt="logo" height="150"></a>
+    <h2 class="name pull-left"> Mentoring Requests</h2>
+    
+    
+    </div>
+    </nav>
+    </header>
+    
+        <div class="row">
+        <div class="col-md-12">
+        <h2>Order Table </h2>
+        <!-- get this photo from google -->
+        <table id="OrderTable">
+            <tr>
+            <th>Order No.</th>
+            <th>Medic's ID </th>
+            <th>Medic's Name</th>
+            <th>Medic's phone Number</th>
+            <th>Patient Status</th>
+            <th>Descreption</th>
+            <th>action</th>
+            </tr>
+      
 
-			
+        </table>
+    </div>
+    </div>
 
-		</tr>
-		<tr id="data">
-			<th class="1"></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</table>
-	<div class="row">
-	<div class="col-md-12">
-	 
-	</div>
-	<div>
-		<br/>
-		<h2>Ambulances Table </h2>
-	</div>
-	</div>
-	<br/>
-	<div class="row">
-	<div class="col-md-12">
-	<!-- get this photo from google -->
-	<table>
-		<tr>
-			<th>Order No.</th>
-			<th>Campaign ID</th>
-			<th>Campaigns Name</th>
-			<th>Campaigns phone Number</th>
-			<th>status</th>
-			
+    
+</div>
+    
+    
+    
+        <!-- ------------------------------------------------------ script ------------------------------------------------------ -->
+        <script id="jsbin-javascript">
+        var config = {
+        apiKey: "AIzaSyAsrj50GsXRY0UdK5hnqBhmb7RfnXlu0ko",
+        authDomain: "hajjhakathon-a59a8.firebaseapp.com",
+        databaseURL: "https://hajjhakathon-a59a8.firebaseio.com",
+        projectId: "hajjhakathon-a59a8",
+        storageBucket: "",
+        messagingSenderId: "986661838828"};
+        firebase.initializeApp(config);
 
-		</tr>
-		<tr>
-			<th class="1"></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</table>
-	<p></p>
-	</div>
-	</div>
-  
-	<div class="row">
-	
-	
 
+        var database = firebase.database().ref();
+        var medicHash = {};
+        var ordarHash = {};
+
+        database.once("value").then(function(snapshot) {
+        var ctr = 1;
+
+        snapshot.forEach(function(childSnapshot) {
+        ctr++;
+        console.log(ctr);
+        
+        var key = childSnapshot.key;
+        
+        
+        
+        if (key === "medic" || key === "order") {
+        
+        database.child("medic/").once("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+        console.log(child.key+": "+child.val());
+        });
+        });
+            
+        database.child("order/").once("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+        console.log(child.key+": "+child.val());
+        });
+        });
+        
+        var orderNo = childSnapshot.child('orderNo').val();
+        var medicId = childSnapshot.child('medicId').val();
+        var medicName = childSnapshot.child('medicName').val();
+        var medicPhone = childSnapshot.child('medicPhone').val();
+        var Descreption = childSnapshot.child('Descreption').val();
+        var actionState = childSnapshot.child('actionState').val();
+        var patientStatus = childSnapshot.child('patientStatus').val();
+        console.log(orderNo+medicId+medicName+medicPhone+Descreption+actionState+patientStatus);
+        
+        var newTr = '<tr><td>'+orderNo+'</td><td>' +medicId+ '</td><td>'+medicName
+        +'</td><td>' +medicPhone+ '</td><td>' +Descreption+ '</td><td>' +actionState
+        + '</td><td>' +patientStatus+ '</td></tr>';
+        $('#OrderTable').append(newTr);
+        
+        }
+            
+        else {
+        console.log("Privet data");
+        }
+            
+        //var newTr = '<tr><td>'+key+'</td><td>' +childData+ '</td><td>'+key+'</td></tr>';
+        //$('#OrderTable').append(newTr);
+        /*
+        
+        var databaseHash = {
+        OrderNo:,
+        MedicsID:,
+        MedicsName:,
+        MedicsPhoneNumber:,
+        PatientStatus:,
+        Descreption:,
+        action:,
+        CampaignID:,
+        CampaignsName:,
+        CampaignsPhoneNumber:,
+        status:
+        };
+        
+        //test
+        console.log(medicHash["medicId"]);
+        console.log(ordarHash["actionSatate"]);*/
+            
+        });
+        });         
+
+        
+            
+            
+        </script>
+    
+    
 </body>
 </html>
